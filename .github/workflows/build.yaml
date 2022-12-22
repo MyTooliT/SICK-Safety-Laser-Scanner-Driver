@@ -1,0 +1,24 @@
+name: Build
+
+on:
+  - push
+
+jobs:
+
+  linux:
+    name: 🐧 Linux
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@master
+
+    - name: Install Boost
+      run: sudo apt-get install libboost-all-dev
+
+    - name: Configure CMake project
+      run: cmake -B build
+
+    - name: Build driver
+      run: cmake --build build
