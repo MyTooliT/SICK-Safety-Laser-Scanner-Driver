@@ -22,3 +22,21 @@ jobs:
 
     - name: Build driver
       run: cmake --build build
+
+  mac:
+    name: 🍏 macOS
+    runs-on: macos-latest
+
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@master
+
+    - name: Install Boost
+      run: brew install boost ninja
+
+    - name: Configure CMake project
+      run: cmake -B build -G Ninja
+
+    - name: Build driver
+      run: cmake --build build
