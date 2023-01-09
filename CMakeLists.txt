@@ -4,7 +4,13 @@ set(CMAKE_CXX_STANDARD 11)
 
 # By adding -Wall and -Werror, the compiler does not ignore warnings anymore,
 # enforcing cleaner code.
-add_definitions(-Wall -Werror)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  # Currently the code does not work without warnings when we use Clang/LLVM: -
+  # https://github.com/SICKAG/sick_safetyscanners_base/issues/9
+  add_definitions(-Wall)
+else(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  add_definitions(-Wall -Werror)
+endif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 
 ## Find system libraries
 find_package(Boost REQUIRED COMPONENTS system thread chrono)
