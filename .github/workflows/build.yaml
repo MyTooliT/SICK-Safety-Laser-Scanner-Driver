@@ -15,10 +15,10 @@ jobs:
       uses: actions/checkout@master
 
     - name: Install Boost
-      run: sudo apt-get install libboost-all-dev
+      run: sudo apt-get install libboost-all-dev ninja-build
 
     - name: Configure CMake project
-      run: cmake -B build
+      run: cmake -B build -G Ninja
 
     - name: Build driver
       run: cmake --build build
