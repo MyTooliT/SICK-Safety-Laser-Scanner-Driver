@@ -40,3 +40,22 @@ jobs:
 
     - name: Build driver
       run: cmake --build build
+
+  windows:
+
+    name: 🪟 Windows
+    runs-on: windows-latest
+
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@master
+
+    - name: Install Boost
+      run: choco install boost-msvc-14.3
+
+    - name: Configure CMake project
+      run: cmake -B build
+
+    - name: Build driver
+      run: cmake --build build
