@@ -4,6 +4,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 if(CMAKE_GENERATOR MATCHES "Visual Studio")
   add_definitions(-D_WIN32_WINNT=0x0601) # Target Windows 7 and later
+  set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 else(CMAKE_GENERATOR MATCHES "Visual Studio")
   # By adding -Wall and -Werror, the compiler does not ignore warnings anymore,
   # enforcing cleaner code.
