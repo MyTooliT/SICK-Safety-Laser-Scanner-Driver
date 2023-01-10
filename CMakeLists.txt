@@ -143,6 +143,8 @@ target_include_directories(
   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
          $<INSTALL_INTERFACE:include> ${Boost_INCLUDE_DIR})
 
+message("Boost Libraries: ${Boost_LIBRARIES}")
+
 target_link_libraries(sick_safetyscanners_base PUBLIC ${Boost_LIBRARIES})
 
 add_library(sick_safetyscanners_base::sick_safetyscanners_base ALIAS
