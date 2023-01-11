@@ -145,7 +145,9 @@ target_include_directories(
 
 message("Boost Libraries: ${Boost_LIBRARIES}")
 
-target_link_libraries(sick_safetyscanners_base PUBLIC ${Boost_LIBRARIES})
+target_link_libraries(
+  sick_safetyscanners_base PUBLIC Boost::system Boost::thread Boost::chrono
+                                  Boost::dynamic_linking)
 
 add_library(sick_safetyscanners_base::sick_safetyscanners_base ALIAS
             sick_safetyscanners_base)
